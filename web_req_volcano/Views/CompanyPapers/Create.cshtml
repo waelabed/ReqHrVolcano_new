@@ -1,0 +1,48 @@
+﻿@model web_req_volcano.Models.CompanyPaper
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>CompanyPaper</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PapersId" class="control-label"></label>
+                <select asp-for="PapersId" class ="form-control" asp-items="ViewBag.PapersId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyPapersDate" class="control-label"></label>
+                <input asp-for="CompanyPapersDate" class="form-control" />
+                <span asp-validation-for="CompanyPapersDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyPapersYear" class="control-label"></label>
+                <input asp-for="CompanyPapersYear" class="form-control" />
+                <span asp-validation-for="CompanyPapersYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyPapersNote" class="control-label"></label>
+                <input asp-for="CompanyPapersNote" class="form-control" />
+                <span asp-validation-for="CompanyPapersNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<web_req_volcano.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarSpecifications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarIdNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarSpecifications)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarIdNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType.VehicleTypeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CarId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CarId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CarId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

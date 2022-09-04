@@ -1,0 +1,131 @@
+﻿@model IEnumerable<web_req_volcano.Models.CompanyPaper>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyPapersDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyPapersYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyPapersNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Papers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPapersDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPapersYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPapersNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Papers.PapersId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompanyPapersId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CompanyPapersId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompanyPapersId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+<h5>
+    <a class="btn btn-success" asp-controller="User" asp-action="Create">Create Company Paper</a>
+</h5>
+
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <div class="row g-3 mb-4 align-items-center justify-content-between">
+				    <div class="col-auto">
+			            <h1 class="app-page-title mb-0">Companies</h1>
+				    </div>
+				    
+			    </div><!--//row-->
+				<div class="tab-content" id="orders-table-tab-content">
+			        <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+					    <div class="app-card app-card-orders-table shadow-sm mb-5">
+						    <div class="app-card-body">
+							    <div class="table-responsive">
+							        <table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+                                        <th>Company Papers Date</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Walle User Name</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+											</tr>
+										</thead>
+										<tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                                <tr>
+                                                    <td class="cell">
+                                                @item.CompanyPapersDate
+                                                    </td>
+                                                    <td class="cell">
+                                                @item.CompanyPapersYear
+                                                    </td>
+                                                    <td class="cell">
+                                                @item.CompanyPapersNote
+                                                    </td>
+                                                    <td class="cell">
+                                                @item.CompanyPapersId
+                                                    </td>
+                                                    
+                                            
+                                          
+
+                                            
+                                                    <td>
+                                                        <div class="w-75 btn-group" role="group">
+                                                    <a class="btn-sm app-btn-secondary" asp-controller="CompanyPapersDate" asp-action="Detail"
+                                                   asp-route-id="@item.CompanyPapersId"><i class="fa-solid fa-memo-circle-info"></i>Details</a>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                    }
+		
+										</tbody>
+									</table>
+						        </div><!--//table-responsive-->
+						    </div><!--//app-card-body-->		
+						</div><!--//app-card-->
+			        
+				</div><!--//tab-content-->
+				
+				
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+
