@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 namespace web_req_volcano.Models
 {
     public partial class AspNetUserLogin
     {
+        [Key]
+        public int Id { get; set; }
         public string LoginProvider { get; set; } = null!;
         public string ProviderKey { get; set; } = null!;
         public string? ProviderDisplayName { get; set; }

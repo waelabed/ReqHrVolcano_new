@@ -5,9 +5,9 @@ using web_req_volcano.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 //configruate db context
-//builder.Services.AddDbContext<ReqHrVolcanoContext>(options => options.UseSqlServer(
-//    builder.Configuration.GetConnectionString("DefaultConnection")
-//));
+builder.Services.AddDbContext<ReqHrVolcanoContext>(options => options.UseSqlServer(
+   builder.Configuration.GetConnectionString("DefaultConnection")
+));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

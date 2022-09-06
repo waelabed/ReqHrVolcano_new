@@ -6,6 +6,6 @@ namespace web_req_volcano.Models
 {
     public  class AspNetRole
     {
-   
+        
     }
 }

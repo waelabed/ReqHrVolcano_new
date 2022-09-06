@@ -23,8 +23,7 @@ namespace web_req_volcano.Models
         public virtual Nationality? EmpNat { get; set; }
         public virtual Section? EmpSec { get; set; }
 
-        [ForeignKey("User")]
-        public string? Id { get; set; }
+        public string? UserId { get; set; }
         public virtual AspNetUser? User { get; set; }
         public virtual EngineeringDepartment EngineeringDepartment { get; set; } = null!;
         public virtual ICollection<CustomerStatement> CustomerStatementCustomerStatementEmpFromNavigations { get; set; }
