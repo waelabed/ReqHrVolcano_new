@@ -1,28 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace web_req_volcano.Models
 {
-    public partial class Emp
+    public class Emp
     {
-        public Emp()
-        {
-            CustomerStatementCustomerStatementEmpFromNavigations = new HashSet<CustomerStatement>();
-            CustomerStatementCustomerStatementEmpToNavigations = new HashSet<CustomerStatement>();
-            Custs = new HashSet<Cust>();
-            DeliveryReceiptCarDeliveryReceiptCarEmpFromNavigations = new HashSet<DeliveryReceiptCar>();
-            DeliveryReceiptCarDeliveryReceiptCarEmpToNavigations = new HashSet<DeliveryReceiptCar>();
-            DeliveryReceiptCovenantDeliveryReceiptCovenantEmpFromNavigations = new HashSet<DeliveryReceiptCovenant>();
-            DeliveryReceiptCovenantDeliveryReceiptCovenantEmpToNavigations = new HashSet<DeliveryReceiptCovenant>();
-            DeliveryReceiptRequestDeliveryReceiptRequestEmpFromNavigations = new HashSet<DeliveryReceiptRequest>();
-            DeliveryReceiptRequestDeliveryReceiptRequestEmpToNavigations = new HashSet<DeliveryReceiptRequest>();
-            MaintenanceDepartments = new HashSet<MaintenanceDepartment>();
-            MaintenanceReports = new HashSet<MaintenanceReport>();
-            ProjectCertificates = new HashSet<ProjectCertificate>();
-            PurchaseOrderPurchaseOrderEmpFromNavigations = new HashSet<PurchaseOrder>();
-            PurchaseOrderPurchaseOrderEmpToNavigations = new HashSet<PurchaseOrder>();
-            RequestQuotes = new HashSet<RequestQuote>();
-        }
+        
 
         public int EmpId { get; set; }
         public string? EmpNameAr { get; set; }
@@ -33,10 +17,14 @@ namespace web_req_volcano.Models
         public int? EmpSecId { get; set; }
         public bool? EmpIsPosetion { get; set; }
         public string? EmpNote { get; set; }
-        public string? UserId { get; set; }
+
+        
 
         public virtual Nationality? EmpNat { get; set; }
         public virtual Section? EmpSec { get; set; }
+
+        [ForeignKey("User")]
+        public string? Id { get; set; }
         public virtual AspNetUser? User { get; set; }
         public virtual EngineeringDepartment EngineeringDepartment { get; set; } = null!;
         public virtual ICollection<CustomerStatement> CustomerStatementCustomerStatementEmpFromNavigations { get; set; }

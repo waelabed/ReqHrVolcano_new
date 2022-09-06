@@ -1,15 +1,34 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using web_req_volcano.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// configruate db context
-builder.Services.AddDbContext<ReqHrVolcanoContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-));
+//configruate db context
+//builder.Services.AddDbContext<ReqHrVolcanoContext>(options => options.UseSqlServer(
+//    builder.Configuration.GetConnectionString("DefaultConnection")
+//));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configure asp ideneity
+
+builder.Services.AddIdentity<AspNetUser, IdentityRole>(
+    options =>
+    {
+        options.Password.RequiredLength = 7;
+        options.Password.RequireDigit = false;
+        options.Password.RequireUppercase = false;
+        options.User.RequireUniqueEmail = true;
+        options.SignIn.RequireConfirmedEmail = false;
+        //options.Tokens.EmailConfirmationTokenProvider = "emailconfirmation";
+
+    }
+)
+.AddEntityFrameworkStores<ReqHrVolcanoContext>();
+
+
 
 //builder.Services.AddScoped()
 

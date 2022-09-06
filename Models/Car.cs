@@ -9,6 +9,7 @@ namespace web_req_volcano.Models
         {
             DeliveryReceiptCars = new HashSet<DeliveryReceiptCar>();
         }
+
         public int CarId { get; set; }
         public int? VehicleTypeId { get; set; }
         public string? CarSpecifications { get; set; }
